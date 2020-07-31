@@ -10,8 +10,7 @@ import org.springframework.stereotype.Service;
 import com.fca.dev.springboot.app.items.clients.ProductRestClient;
 import com.fca.dev.springboot.app.items.models.Item;
 
-@Service
-@Primary
+@Service("feignRestClient")
 public class ItemServiceFeign implements ItemService {
 
 	@Autowired

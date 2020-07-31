@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import com.fca.dev.springboot.app.items.models.Product;
 
-@FeignClient(name="service.products")
+@FeignClient(name="service.product")
 public interface ProductRestClient {
 	
 	@GetMapping("/ver")

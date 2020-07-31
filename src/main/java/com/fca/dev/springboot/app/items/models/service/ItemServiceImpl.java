@@ -7,13 +7,15 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import com.fca.dev.springboot.app.items.models.Item;
 import com.fca.dev.springboot.app.items.models.Product;
 
-@Service
+@Primary
+@Service("serviceRestTemplate")
 public class ItemServiceImpl implements ItemService {
 
 	@Autowired
@@ -21,7 +23,7 @@ public class ItemServiceImpl implements ItemService {
 	
 	@Override
 	public List<Item> findAll() {
-		List<Product> productos = Arrays.asList(restClient.getForObject("http://localhost:8002/ver", Product[].class));
+		List<Product> productos = Arrays.asList(restClient.getForObject("http://service.product/ver", Product[].class));
 		return productos.stream().map(p -> new Item(p, 1)).collect(Collectors.toList());
 	}
 
@@ -29,7 +31,7 @@ public class ItemServiceImpl implements ItemService {
 	public Item findById(Long id, Integer cantidad) {
 		Map<String,String> pathVars = new HashMap<String,String>();
 		pathVars.put("id", id.toString());
-		Product product = restClient.getForObject("http://localhost:8002/ver/{id}", Product.class,pathVars);
+		Product product = restClient.getForObject("http://service.product/ver/{id}", Product.class,pathVars);
 		
 		return new Item(product, cantidad);
 	}
