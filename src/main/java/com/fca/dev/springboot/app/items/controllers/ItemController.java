@@ -25,7 +25,7 @@ public class ItemController {
 	@Qualifier("serviceRestTemplate")
 	private ItemService itemService;
 	
-	@Value("${testText}")
+	@Value("${config.testText}")
 	private String testText;
 	
 	@GetMapping("/ver")
