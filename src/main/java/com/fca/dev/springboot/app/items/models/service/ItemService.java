@@ -1,9 +1,9 @@
 package com.fca.dev.springboot.app.items.models.service;
+import com.fca.dev.springboot.app.commons.models.entity.Product;
 
 import java.util.List;
 
 import com.fca.dev.springboot.app.items.models.Item;
-import com.fca.dev.springboot.app.items.models.Product;
 
 public interface ItemService {
 

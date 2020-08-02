@@ -1,6 +1,7 @@
 package com.fca.dev.springboot.app.items.models.service;
 
 import java.util.Arrays;
+import com.fca.dev.springboot.app.commons.models.entity.Product;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -15,7 +16,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import com.fca.dev.springboot.app.items.models.Item;
-import com.fca.dev.springboot.app.items.models.Product;
 
 @Primary
 @Service("serviceRestTemplate")

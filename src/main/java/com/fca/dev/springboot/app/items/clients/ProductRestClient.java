@@ -1,6 +1,7 @@
 package com.fca.dev.springboot.app.items.clients;
 
 import java.util.List;
+import com.fca.dev.springboot.app.commons.models.entity.Product;
 
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -9,8 +10,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-
-import com.fca.dev.springboot.app.items.models.Product;
 
 @FeignClient(name="service.product")
 public interface ProductRestClient {

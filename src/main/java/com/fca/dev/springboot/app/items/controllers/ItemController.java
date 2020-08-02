@@ -1,6 +1,7 @@
 package com.fca.dev.springboot.app.items.controllers;
 
 import java.util.HashMap;
+import com.fca.dev.springboot.app.commons.models.entity.Product;
 import java.util.List;
 import java.util.Map;
 
@@ -20,7 +21,6 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.fca.dev.springboot.app.items.models.Item;
-import com.fca.dev.springboot.app.items.models.Product;
 import com.fca.dev.springboot.app.items.models.service.ItemService;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 
@@ -29,7 +29,7 @@ import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 public class ItemController {
 
 	@Autowired
-	@Qualifier("feignRestClient")
+	@Qualifier("serviceRestTemplate")
 	private ItemService itemService;
 	
 	@Value("${config.testText}")

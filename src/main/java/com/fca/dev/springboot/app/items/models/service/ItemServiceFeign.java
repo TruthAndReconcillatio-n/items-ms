@@ -1,5 +1,5 @@
 package com.fca.dev.springboot.app.items.models.service;
-
+import com.fca.dev.springboot.app.commons.models.entity.Product;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 
 import com.fca.dev.springboot.app.items.clients.ProductRestClient;
 import com.fca.dev.springboot.app.items.models.Item;
-import com.fca.dev.springboot.app.items.models.Product;
 
 @Service("feignRestClient")
 public class ItemServiceFeign implements ItemService {

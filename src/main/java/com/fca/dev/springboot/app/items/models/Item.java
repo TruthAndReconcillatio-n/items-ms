@@ -1,5 +1,7 @@
 package com.fca.dev.springboot.app.items.models;
 
+import com.fca.dev.springboot.app.commons.models.entity.Product;
+
 import lombok.Data;
 
 @Data
