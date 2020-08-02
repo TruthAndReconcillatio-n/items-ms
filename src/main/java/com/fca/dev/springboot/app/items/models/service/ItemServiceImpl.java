@@ -8,6 +8,9 @@ import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Primary;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
@@ -34,6 +37,31 @@ public class ItemServiceImpl implements ItemService {
 		Product product = restClient.getForObject("http://service.product/ver/{id}", Product.class,pathVars);
 		
 		return new Item(product, cantidad);
+	}
+
+	@Override
+	public Product save(Product product) {
+		HttpEntity<Product> body = new HttpEntity<Product>(product);
+		ResponseEntity<Product> response =  restClient.exchange("http://service.product/create", HttpMethod.POST, body, Product.class);
+		Product productResponse = response.getBody();
+		return productResponse;
+	}
+
+	@Override
+	public Product update(Product product, Long id) {
+		Map<String,String> pathVars = new HashMap<String,String>();
+		pathVars.put("id", id.toString());
+		HttpEntity<Product> body = new HttpEntity<Product>(product);
+		ResponseEntity<Product> response = restClient.exchange("http://service.product/edit/{id}",HttpMethod.PUT, body,Product.class,pathVars);
+		return response.getBody();
+	}
+
+	@Override
+	public void delete(Long id) {
+		Map<String,String> pathVars = new HashMap<String,String>();
+		pathVars.put("id", id.toString());
+		restClient.delete("http://service.product/delete/{id}",pathVars);
+		
 	}
 
 }
