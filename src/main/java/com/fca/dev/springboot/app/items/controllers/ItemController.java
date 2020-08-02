@@ -29,7 +29,7 @@ import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 public class ItemController {
 
 	@Autowired
-	@Qualifier("serviceRestTemplate")
+	@Qualifier("feignRestClient")
 	private ItemService itemService;
 	
 	@Value("${config.testText}")
